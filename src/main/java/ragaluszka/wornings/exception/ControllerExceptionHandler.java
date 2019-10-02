@@ -1,4 +1,4 @@
-package ragaluszka.wornings;
+package ragaluszka.wornings.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

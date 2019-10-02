@@ -1,9 +1,9 @@
-package ragaluszka.wornings;
+package ragaluszka.wornings.model;
 
 import lombok.Data;
 
 @Data
-public class User {
+public class UserDTO {
     private String firstName;
     private String lastName;
     private String Department;

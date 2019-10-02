@@ -1,4 +1,4 @@
-package ragaluszka.wornings;
+package ragaluszka.wornings.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
