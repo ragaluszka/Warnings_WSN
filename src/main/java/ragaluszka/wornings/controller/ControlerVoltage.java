@@ -8,6 +8,7 @@ import ragaluszka.wornings.model.VoltageDTO;
 import ragaluszka.wornings.exception.WrongException;
 import ragaluszka.wornings.persistence.model.Voltage;
 import ragaluszka.wornings.persistence.repository.VoltageRepo;
+import ragaluszka.wornings.service.Mapper;
 
 import javax.websocket.server.PathParam;
 import java.util.ArrayList;
@@ -40,7 +41,7 @@ public class ControlerVoltage {
     public VoltageDTO getVoltage(@PathVariable(value = "id") Long id){
         System.out.println("Voltage");
         Voltage v=voltageRepo.getOne(id);
-        return new VoltageDTO(v.getId(),v.getName());
+        return Mapper.voltageToVoltageDTO(v);
     }
 
     //Secend try http:/......./?id=1
