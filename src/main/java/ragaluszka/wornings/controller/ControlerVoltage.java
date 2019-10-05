@@ -9,6 +9,7 @@ import ragaluszka.wornings.exception.WrongException;
 import ragaluszka.wornings.persistence.model.Voltage;
 import ragaluszka.wornings.persistence.repository.VoltageRepo;
 import ragaluszka.wornings.service.Mapper;
+import ragaluszka.wornings.service.VoltageService;
 
 import javax.websocket.server.PathParam;
 import java.util.ArrayList;
@@ -20,7 +21,9 @@ public class ControlerVoltage {
 
     private List<VoltageDTO> listaVoltage = new ArrayList<>();
     @Autowired
-    VoltageRepo voltageRepo;
+    VoltageService voltageService;
+    //VoltageRepo voltageRepo;
+
 
 
     @RequestMapping(value = "/createVoltage", method = RequestMethod.POST)
@@ -29,6 +32,16 @@ public class ControlerVoltage {
         listaVoltage.add(voltage);
      System.out.println(+voltage.getId()+":"+voltage.getName());
      return new ResponseEntity<>(voltage, HttpStatus.ACCEPTED);
+    }
+
+    @RequestMapping(value = "add/{id}", method = RequestMethod.GET)
+    public VoltageDTO buyCourse(@PathVariable(value = "id") Long id) {
+        System.out.println("add Voltage");
+        Voltage voltage = new Voltage();
+        voltage.setName("voltTest");
+         voltageService.save(voltage);
+        //return voltageService.getVoltageDTOById(id);
+       return null;
     }
 
     @RequestMapping(value = "/listsVoltage", method = RequestMethod.GET)
@@ -40,7 +53,7 @@ public class ControlerVoltage {
     @RequestMapping(value = "/getVoltage/{id}", method = RequestMethod.GET)
     public VoltageDTO getVoltage(@PathVariable(value = "id") Long id){
         System.out.println("Voltage");
-        Voltage v=voltageRepo.getOne(id);
+        Voltage v=voltageService.getOne(id);
         return Mapper.voltageToVoltageDTO(v);
     }
 
