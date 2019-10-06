@@ -13,7 +13,7 @@ public class Mapper {
 
     public static Voltage VoltageDTOToVoltage(VoltageDTO voltageDTO){
         Voltage voltage =new Voltage();
-        voltage.setId(voltageDTO.getId());
+        //voltage.setId(voltageDTO.getId());
         voltage.setName(voltageDTO.getName());
         return voltage;
     }

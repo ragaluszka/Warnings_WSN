@@ -10,5 +10,5 @@ import java.util.List;
 public interface VoltageService extends BaseService<Voltage,Long, VoltageRepo> {
      VoltageDTO getVoltageDTOById (Long id);
      VoltageDTO createVoltage (VoltageDTO voltageDTO);
-   //  List<VoltageDTO>getAllVoltage();
+     List<VoltageDTO>getAllVoltage();
 }

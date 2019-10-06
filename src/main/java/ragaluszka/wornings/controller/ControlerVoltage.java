@@ -47,7 +47,7 @@ public class ControlerVoltage {
 
     @RequestMapping(value = "/listsVoltage", method = RequestMethod.GET)
     public ResponseEntity<List<VoltageDTO>> listsVoltage(){
-        return new ResponseEntity<>(listaVoltage, HttpStatus.OK);
+        return new ResponseEntity<>(voltageService.getAllVoltage(), HttpStatus.OK);
     }
 
     //http:/......./getVoltage/1
