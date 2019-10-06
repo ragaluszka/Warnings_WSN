@@ -26,13 +26,13 @@ public class VoltageServiceImp extends BaseServiceImp<Voltage,Long, VoltageRepo>
         return Mapper.voltageToVoltageDTO(getOne(id));
     }
 
-    /*
+
     @Override
     public VoltageDTO createVoltage(VoltageDTO voltageDTO) {
-        Voltage c = save(Mapper.VoltageDTOToVoltage(voltageDTO));
-        return Mapper.voltageToVoltageDTO(c);
+        Voltage v = save(Mapper.VoltageDTOToVoltage(voltageDTO));
+        return Mapper.voltageToVoltageDTO(v);
     }
-
+    /*
     @Override
     public List<VoltageDTO> getAllVoltage() {
         return getAll().stream()

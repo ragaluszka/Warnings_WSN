@@ -27,11 +27,12 @@ public class ControlerVoltage {
 
 
     @RequestMapping(value = "/createVoltage", method = RequestMethod.POST)
-    public ResponseEntity<VoltageDTO> createVoltage(@RequestBody VoltageDTO voltage){
-        if (voltage.getId()==null || voltage.getId()<0) throw new WrongException("ID null lub mniejsze od 0");
-        listaVoltage.add(voltage);
-     System.out.println(+voltage.getId()+":"+voltage.getName());
-     return new ResponseEntity<>(voltage, HttpStatus.ACCEPTED);
+    public ResponseEntity<VoltageDTO> createVoltage(@RequestBody VoltageDTO voltageDTO){
+        if (voltageDTO.getId() != null ) throw new WrongException("Voltage nie może mieć ID");
+        //listaVoltage.add(voltage);
+        System.out.println("dodanie poziomu napięcia: /warnings/createvoltage : "+voltageDTO.getName());
+        VoltageDTO vDTO = voltageService.createVoltage(voltageDTO);
+     return new ResponseEntity<>(vDTO, HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "add/{id}", method = RequestMethod.GET)
